@@ -7,6 +7,8 @@
 // released according to Gnu Affero Public License v. 3
 // expiration is set at 3 months, but you can changes the value of oldate, by changing
 // the strtotime('-3 months') to some other value, like (-1 year) or (-6 months), or whatever.
+// this is to be run from the command line, /usr/bin/php /path/to/statexpire.php
+// not run in the browser
 
 $oldate=date((Ymd), strtotime('-3 months'));
 

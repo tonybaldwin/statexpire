@@ -9,3 +9,14 @@ $oldate=date((Ymd), strtotime('-3 months'));
 from -3 months to whatever you like.
 Could be -10 days, -1 year, -6 months, whatever,
 and the script will delete updates older than that given value.
+
+This is to be run from the command line with
+/usr/bin/php /path/to/statexpire.php
+not to be run in a browser.
+As such, it requires php-cli, but statusnet already requires that to run other scripts.
+I recommend sticking it in /statusnet/scripts/
+
+You could have a cronjob do it:
+0 0 1 * * /usr/bin/php /var/www/statusnet/scripts/statexpire.php
+
+or some such thing.
