@@ -19,8 +19,11 @@ I recommend sticking it in /statusnet/scripts/
 Or, of course, the statexpire.sh is a bash script, to be run from the command line.
 
 You could have a cronjob do it:
+
 0 0 1 * * /usr/bin/php /var/www/statusnet/scripts/statexpire.php
+
 or
+
 0 0 1 * * /var/www/status/scripts/statexpire.sh
 
 or some such thing.
