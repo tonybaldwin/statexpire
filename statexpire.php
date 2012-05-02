@@ -24,9 +24,16 @@ if (!$mysql_connect) {
 
 $num=mysql_numrows($result);
 
-$query="DELETE FROM `notice` WHERE `created` <= '$oldate 01:01:01'"
-mysql_query($query);
-$rowaff=mysql_affected_rows();
+$notice_query="DELETE FROM `notice` WHERE `created` <= '$oldate 01:01:01'"
+$conversation_query="DELETE FROM `conversation` WHERE `created` <= '$oldate 01:01:01'"
+$reply_query="DELETE FROM `reply` WHERE `modified` <= '$oldate 01:01:01'"
+
+mysql_query($noticequery);
+$rowaff1=mysql_affected_rows();
+mysql_query($conversation_query);
+$rowaff2=mysql_affected_rows();
+mysql_query($reply_query);
+$rowaff3=mysql_affected_rows();
 mysql_close();
 
-echo "SUCCESS: $rowaff rows deleted from database.";
+echo "SUCCESS: $rowaff1 notices, $rowaff2 conversations, and $rowaff3 replies deleted from database.";
