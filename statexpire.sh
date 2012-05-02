@@ -2,6 +2,7 @@
 
 # script to expire status.net posts older than 3 months old
 # by tony baldwin | www.tonybaldwin.me
+# released according to the GNU PUBLIC LICENSE v. 3
 # this, like the php script, could be used with a cron job.
 # your choice!
 # it will expire updates, replies, and conversations at 3 months.
