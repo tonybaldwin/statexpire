@@ -10,7 +10,7 @@
 // this is to be run from the command line, /usr/bin/php /path/to/statexpire.php
 // not run in the browser
 
-$oldate=date(("Ymd"), strtotime('-3 months'));
+$oldate=date(("Y-m-d"), strtotime('-3 months'));
 
 $username="USERNAME";
 $password="PASSWORD";
