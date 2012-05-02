@@ -10,25 +10,27 @@
 // this is to be run from the command line, /usr/bin/php /path/to/statexpire.php
 // not run in the browser
 
-$oldate=date((Ymd), strtotime('-3 months'));
+$oldate=date(("Ymd"), strtotime('-3 months'));
 
 $username="USERNAME";
 $password="PASSWORD";
 $database="DBNAME";
-mysql_connect(localhost,$USERNAME,$PASSWORD);
 
-if (!$mysql_connect) {
-	    die('Could not connect: ' . mysql_error());
-}
+if (!$link = mysql_connect('localhost', $USERNAME, $PASSWORD)) {
+            echo 'Could not connect to mysql';
+                exit;
+            }
 
+if (!mysql_select_db($DATABASE, $link)) {
+            echo 'Could not select database';
+                exit;
+            }
 
-$num=mysql_numrows($result);
+$notice_query="DELETE FROM 'notice' WHERE 'created' <= '$oldate 01:01:01'";
+$conversation_query="DELETE FROM 'conversation' WHERE 'created' <= '$oldate 01:01:01'";
+$reply_query="DELETE FROM 'reply' WHERE 'modified' <= '$oldate 01:01:01'";
 
-$notice_query="DELETE FROM `notice` WHERE `created` <= '$oldate 01:01:01'"
-$conversation_query="DELETE FROM `conversation` WHERE `created` <= '$oldate 01:01:01'"
-$reply_query="DELETE FROM `reply` WHERE `modified` <= '$oldate 01:01:01'"
-
-mysql_query($noticequery);
+mysql_query($notice_query);
 $rowaff1=mysql_affected_rows();
 mysql_query($conversation_query);
 $rowaff2=mysql_affected_rows();
@@ -36,4 +38,5 @@ mysql_query($reply_query);
 $rowaff3=mysql_affected_rows();
 mysql_close();
 
-echo "SUCCESS: $rowaff1 notices, $rowaff2 conversations, and $rowaff3 replies deleted from database.";
+echo "SUCCESS: $rowaff1 notices, $rowaff2 conversations, and $rowaff3 replies deleted from database.\n";
+
