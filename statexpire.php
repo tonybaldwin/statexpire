@@ -5,6 +5,8 @@
 // and $DBNAME to reflect your db (mine is, not surprisingly, simply "statusnet"
 // by tony baldwin | www.tonybaldwin.me
 // released according to Gnu Affero Public License v. 3
+// expiration is set at 3 months, but you can changes the value of oldate, by changing
+// the strtotime('-3 months') to some other value, like (-1 year) or (-6 months), or whatever.
 
 $oldate=date((Ymd), strtotime('-3 months'));
 
