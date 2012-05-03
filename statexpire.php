@@ -26,9 +26,9 @@ if (!mysql_select_db($DATABASE, $link)) {
                 exit;
             }
 
-$notice_query="DELETE * FROM notice WHERE created <= '$oldate 01:01:01'";
-$conversation_query="DELETE * FROM conversation WHERE created <= '$oldate 01:01:01'";
-$reply_query="DELETE * FROM reply WHERE modified <= '$oldate 01:01:01'";
+$notice_query="DELETE FROM notice WHERE created <= '$oldate 01:01:01'";
+$conversation_query="DELETE FROM conversation WHERE created <= '$oldate 01:01:01'";
+$reply_query="DELETE FROM reply WHERE modified <= '$oldate 01:01:01'";
 
 mysql_query($notice_query);
 $rowaff1=mysql_affected_rows();
