@@ -16,12 +16,12 @@ $username="USERNAME";
 $password="PASSWORD";
 $database="DBNAME";
 
-if (!$link = mysql_connect('localhost', $USERNAME, $PASSWORD)) {
+if (!$link = mysql_connect('localhost', $username, $password)) {
             echo 'Could not connect to mysql';
                 exit;
             }
 
-if (!mysql_select_db($DATABASE, $link)) {
+if (!mysql_select_db($database, $link)) {
             echo 'Could not select database';
                 exit;
             }
@@ -39,4 +39,3 @@ $rowaff3=mysql_affected_rows();
 mysql_close();
 
 echo "SUCCESS: $rowaff1 notices, $rowaff2 conversations, and $rowaff3 replies deleted from database.\n";
-
